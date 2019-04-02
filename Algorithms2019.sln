@@ -1,0 +1,22 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj", "{1748C6B0-6FF2-4682-8B91-E81AFC4DA98F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimumSpanningTree", "MinimumSpanningTree\MinimumSpanningTree.csproj", "{CFC861BF-7CCA-45C3-A370-3BF4CD3236BE}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{1748C6B0-6FF2-4682-8B91-E81AFC4DA98F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1748C6B0-6FF2-4682-8B91-E81AFC4DA98F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1748C6B0-6FF2-4682-8B91-E81AFC4DA98F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1748C6B0-6FF2-4682-8B91-E81AFC4DA98F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CFC861BF-7CCA-45C3-A370-3BF4CD3236BE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CFC861BF-7CCA-45C3-A370-3BF4CD3236BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CFC861BF-7CCA-45C3-A370-3BF4CD3236BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CFC861BF-7CCA-45C3-A370-3BF4CD3236BE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+EndGlobal
