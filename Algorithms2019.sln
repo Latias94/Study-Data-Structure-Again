@@ -8,6 +8,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array", "Array\Array.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackAndQueues", "StackAndQueues\StackAndQueues.csproj", "{496C1458-7875-4896-BE5F-48315AA71307}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{891E7CF1-E45A-4309-9B27-ADFFF37DD757}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -30,5 +32,9 @@ Global
 		{496C1458-7875-4896-BE5F-48315AA71307}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{496C1458-7875-4896-BE5F-48315AA71307}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{496C1458-7875-4896-BE5F-48315AA71307}.Release|Any CPU.Build.0 = Release|Any CPU
+		{891E7CF1-E45A-4309-9B27-ADFFF37DD757}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{891E7CF1-E45A-4309-9B27-ADFFF37DD757}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{891E7CF1-E45A-4309-9B27-ADFFF37DD757}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{891E7CF1-E45A-4309-9B27-ADFFF37DD757}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
