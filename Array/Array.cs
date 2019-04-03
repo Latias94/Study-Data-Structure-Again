@@ -133,6 +133,20 @@ namespace Array
         {
             Insert(0, element);
         }
+        
+        /// <summary>
+        /// 获取最后的元素
+        /// </summary>
+        public T GetLast() {
+            return Get(size - 1);
+        }
+
+        /// <summary>
+        /// 获取第一个元素
+        /// </summary>
+        public T GetFirst() {
+            return Get(0);
+        }
 
         /// <summary>
         /// 获取指定位置的元素
