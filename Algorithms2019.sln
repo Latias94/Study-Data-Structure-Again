@@ -4,6 +4,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Graph", "Graph\Graph.csproj
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MinimumSpanningTree", "MinimumSpanningTree\MinimumSpanningTree.csproj", "{CFC861BF-7CCA-45C3-A370-3BF4CD3236BE}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Array", "Array\Array.csproj", "{8F2AB4E1-70A7-4386-A1A9-25866F91E26F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackAndQueues", "StackAndQueues\StackAndQueues.csproj", "{496C1458-7875-4896-BE5F-48315AA71307}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{CFC861BF-7CCA-45C3-A370-3BF4CD3236BE}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CFC861BF-7CCA-45C3-A370-3BF4CD3236BE}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CFC861BF-7CCA-45C3-A370-3BF4CD3236BE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F2AB4E1-70A7-4386-A1A9-25866F91E26F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2AB4E1-70A7-4386-A1A9-25866F91E26F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2AB4E1-70A7-4386-A1A9-25866F91E26F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2AB4E1-70A7-4386-A1A9-25866F91E26F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{496C1458-7875-4896-BE5F-48315AA71307}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{496C1458-7875-4896-BE5F-48315AA71307}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{496C1458-7875-4896-BE5F-48315AA71307}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{496C1458-7875-4896-BE5F-48315AA71307}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
