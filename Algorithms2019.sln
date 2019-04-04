@@ -10,6 +10,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StackAndQueues", "StackAndQ
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LinkedList", "LinkedList\LinkedList.csproj", "{891E7CF1-E45A-4309-9B27-ADFFF37DD757}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BST", "BST\BST.csproj", "{1EE299B5-B894-4453-92CD-6FA8BDA6FF78}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,5 +38,9 @@ Global
 		{891E7CF1-E45A-4309-9B27-ADFFF37DD757}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{891E7CF1-E45A-4309-9B27-ADFFF37DD757}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{891E7CF1-E45A-4309-9B27-ADFFF37DD757}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EE299B5-B894-4453-92CD-6FA8BDA6FF78}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EE299B5-B894-4453-92CD-6FA8BDA6FF78}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EE299B5-B894-4453-92CD-6FA8BDA6FF78}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EE299B5-B894-4453-92CD-6FA8BDA6FF78}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
