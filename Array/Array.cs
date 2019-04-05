@@ -38,6 +38,20 @@ namespace Array
         {
         }
 
+        /// <summary>
+        /// 将普通数组转成动态扩容数组
+        /// </summary>
+        public Array(T[] arr)
+        {
+            data = new T[arr.Length];
+            for (int i = 0; i < arr.Length; i++)
+            {
+                data[i] = arr[i];
+            }
+
+            size = arr.Length;
+        }
+
         public int GetSize()
         {
             return size;
@@ -133,18 +147,20 @@ namespace Array
         {
             Insert(0, element);
         }
-        
+
         /// <summary>
         /// 获取最后的元素
         /// </summary>
-        public T GetLast() {
+        public T GetLast()
+        {
             return Get(size - 1);
         }
 
         /// <summary>
         /// 获取第一个元素
         /// </summary>
-        public T GetFirst() {
+        public T GetFirst()
+        {
             return Get(0);
         }
 
@@ -235,9 +251,11 @@ namespace Array
             data[size] = default(T);
             // 当数组中元素数小于容量的 1/4 时，自动缩容为原来的一半
             // 之所以选 1/4 是为了防止频繁扩容和缩容引起性能下降
-            if (size == capacity / 4 && data.Length / 2 != 0) {
+            if (size == capacity / 4 && data.Length / 2 != 0)
+            {
                 Resize(capacity / 2);
             }
+
             return value;
         }
 
@@ -271,6 +289,19 @@ namespace Array
                 Remove(index);
             }
         }
+
+        public void Swap(int i, int j)
+        {
+            if (i < 0 || i >= size || j < 0 || j >= size)
+            {
+                throw new ArgumentException("Index is illegal.");
+            }
+
+            T t = data[i];
+            data[i] = data[j];
+            data[j] = t;
+        }
+
 
         public override string ToString()
         {

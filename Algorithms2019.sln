@@ -14,6 +14,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BST", "BST\BST.csproj", "{1
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SetAndMap", "SetAndMap\SetAndMap.csproj", "{FD8FA0A2-439B-4892-9BBD-5CE1B506BA08}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HeapAndPriorityQueue", "HeapAndPriorityQueue\HeapAndPriorityQueue.csproj", "{A008D62C-5F99-417B-AE93-3547B4E18462}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,5 +50,9 @@ Global
 		{FD8FA0A2-439B-4892-9BBD-5CE1B506BA08}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{FD8FA0A2-439B-4892-9BBD-5CE1B506BA08}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{FD8FA0A2-439B-4892-9BBD-5CE1B506BA08}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A008D62C-5F99-417B-AE93-3547B4E18462}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A008D62C-5F99-417B-AE93-3547B4E18462}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A008D62C-5F99-417B-AE93-3547B4E18462}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A008D62C-5F99-417B-AE93-3547B4E18462}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
