@@ -9,7 +9,7 @@ namespace BST
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
     /// <typeparam name="TValue"></typeparam>
-    public class Bst<TKey, TValue> where TKey : IComparable
+    public class BST<TKey, TValue> where TKey : IComparable
     {
         private class Node
         {
@@ -57,7 +57,7 @@ namespace BST
         /// </summary>
         private int count;
 
-        public Bst()
+        public BST()
         {
             root = null;
             count = 0;
@@ -100,9 +100,9 @@ namespace BST
             return minNode.Key;
         }
 
-        /**
-         * 寻找最大的键值
-         */
+        /// <summary>
+        /// 寻找最大的键值
+        /// </summary>
         public TKey Max()
         {
             if (count == 0)
@@ -111,14 +111,23 @@ namespace BST
             return maxNode.Key;
         }
 
-        /**
-         * 删除最小值对应的节点
-         */
+        /// <summary>
+        /// 删除键值最小的节点
+        /// </summary>
         public void DeleteMin()
         {
             if (root != null)
             {
                 root = DeleteMin(root);
+            }
+        }
+        
+        /// <summary>
+        /// 删除键值最大的节点
+        /// </summary>
+        public void DeleteMax() {
+            if (root != null) {
+                root = DeleteMax(root);
             }
         }
 
@@ -345,14 +354,16 @@ namespace BST
 
             return Max(node.Right);
         }
-        
+
         /// <summary>
         /// 删除以 node 为根节点的子树中的最小的节点
         /// </summary>
         /// <param name="node">根节点</param>
         /// <returns>最小的节点</returns>
-        private Node DeleteMin(Node node) {
-            if (node.Left == null) {
+        private Node DeleteMin(Node node)
+        {
+            if (node.Left == null)
+            {
                 // 没有左节点了，就要看看右节点是否存在，有则删除
                 Node rightNode = node.Right;
                 node.Right = null;
@@ -362,6 +373,7 @@ namespace BST
                 // 来替代原来被删除的父节点的位置
                 return rightNode;
             }
+
             // 好好体验递归
             node.Left = DeleteMin(node.Left);
             return node;
@@ -372,8 +384,10 @@ namespace BST
         /// </summary>
         /// <param name="node">根节点</param>
         /// <returns>最小的节点</returns>
-        private Node DeleteMax(Node node) {
-            if (node.Right == null) {
+        private Node DeleteMax(Node node)
+        {
+            if (node.Right == null)
+            {
                 // 没有右节点了，就要看看左节点是否存在，有则删除
                 Node leftNode = node.Left;
                 node.Left = null;
@@ -383,8 +397,66 @@ namespace BST
                 // 来替代原来被删除的父节点的位置
                 return leftNode;
             }
+
             node.Right = DeleteMax(node.Right);
             return node;
+        }
+
+        /// <summary>
+        /// 删除指定节点作为树的根的二叉搜索树中键值为 Key 的节点
+        /// 删除最小节点后的替换值实际从删除节点的右子树中找最小节点即可
+        /// 返回删除节点后的新的二分搜索树的根。
+        /// </summary>
+        /// <param name="node"></param>
+        /// <param name="key"></param>
+        /// <returns></returns>
+        private Node DeleteNode(Node node, TKey key)
+        {
+            if (node == null)
+            {
+                return null;
+            }
+
+            if (key.CompareTo(node.Key) < 0)
+            {
+                node.Left = DeleteNode(node.Left, key);
+                return node;
+            }
+
+            if (key.CompareTo(node.Key) > 0)
+            {
+                node.Right = DeleteNode(node.Right, key);
+                return node;
+            }
+
+            // 找到要删除的节点
+            if (node.Left == null)
+            {
+                // 左子树为空，看右子树，删除节点后，把右子树接到节点原来的位置去
+                Node rightNode = node.Right;
+                count--;
+                return rightNode;
+            }
+
+            if (node.Right == null)
+            {
+                // 右子树为空，看左子树，删除节点后，把左子树接到节点原来的位置去
+                Node leftNode = node.Left;
+                count--;
+                return leftNode;
+            }
+
+            // 左右子树都不为空，使用 Hibbard Deletion
+            // 找到键值比节点键值大，且最相近的节点，也就是右子树的最小节点。(同理，或者左子树的最大节点)
+            // 并把这个节点上提至节点本身的位置，更新左右子树
+            Node successor = new Node(Min(node.Right));
+            successor.Left = node.Left;
+            successor.Right = DeleteMin(node.Right);
+            count++; // DeleteMin 中已经 count-- 了，所以要加回来
+
+            node.Left = node.Right = null;
+            count--; // 删除了键值相同的节点
+            return successor;
         }
 
         #endregion
