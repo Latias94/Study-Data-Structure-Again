@@ -3,6 +3,9 @@ using System.Text;
 
 namespace LinkedList
 {
+    /// <summary>
+    /// 链表
+    /// </summary>
     public class LinkedList<T>
     {
         private class Node

@@ -10,10 +10,10 @@ namespace Graph
             // This will get the current WORKING directory (i.e. \bin\Debug)
             string workingDirectory = Environment.CurrentDirectory;
             // 得到当前 solution 的路径
-            string projectDirectory = Directory.GetParent(workingDirectory).Parent.FullName;
+            string projectDirectory = Directory.GetParent(workingDirectory).FullName;
 
             // 使用两种图的存储方式读取graph1.txt文件
-            string filename = System.IO.Path.Combine(projectDirectory, "Algorithms2019\\Graph\\graph1.txt");
+            string filename = System.IO.Path.Combine(projectDirectory, "Graph/graph1.txt");
             SparseGraph g1 = new SparseGraph(13, false);
             ReadGraph.ReadFromFile(g1, filename);
             Console.WriteLine("graph1 in Sparse Graph:");
@@ -41,7 +41,7 @@ namespace Graph
 //            Console.WriteLine();
 
             // 使用两种图的存储方式读取graph2.txt文件
-            filename = System.IO.Path.Combine(projectDirectory, "Algorithms2019\\Graph\\graph2.txt");
+            filename = System.IO.Path.Combine(projectDirectory, "Graph/graph2.txt");
             SparseGraph g3 = new SparseGraph(7, false);
             ReadGraph.ReadFromFile(g3, filename);
             Console.WriteLine("graph2 in Sparse Graph:");
