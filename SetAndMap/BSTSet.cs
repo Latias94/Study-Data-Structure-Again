@@ -18,7 +18,7 @@ namespace SetAndMap
 
         public void Add(T element)
         {
-            bst.Insert(element, element);
+            bst.Add(element, element);
         }
 
         public void Delete(T element)

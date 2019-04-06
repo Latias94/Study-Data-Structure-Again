@@ -19,7 +19,7 @@ namespace SetAndMap
 
         public void Set(TKey key, TValue value)
         {
-            bst.Insert(key, value);
+            bst.Add(key, value);
         }
 
         public void Delete(TKey key)
@@ -34,7 +34,7 @@ namespace SetAndMap
 
         public TValue Get(TKey key)
         {
-            return bst.Search(key);
+            return bst.Get(key);
         }
 
         public int GetSize()

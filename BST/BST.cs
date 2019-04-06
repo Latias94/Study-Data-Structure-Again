@@ -4,7 +4,7 @@ using System.Collections.Generic;
 namespace BST
 {
     /// <summary>
-    /// 二分查找树
+    /// 二分查找树（不平衡），平衡的二分查找树查看 AVLTree
     /// Key 唯一、可比较，Value 无所谓
     /// </summary>
     /// <typeparam name="TKey"></typeparam>
@@ -13,37 +13,37 @@ namespace BST
     {
         private class Node
         {
-            public TKey Key;
+            public TKey key;
 
-            public TValue Value;
+            public TValue value;
 
             /// <summary>
             /// 左子节点
             /// </summary>
-            public Node Left;
+            public Node left;
 
             /// <summary>
             /// 右子节点
             /// </summary>
-            public Node Right;
+            public Node right;
 
             /// <summary>
             /// 构造函数
             /// </summary>
             public Node(TKey key, TValue value)
             {
-                this.Key = key;
-                this.Value = value;
-                Left = null;
-                Right = null;
+                this.key = key;
+                this.value = value;
+                left = null;
+                right = null;
             }
 
             public Node(Node node)
             {
-                Key = node.Key;
-                Value = node.Value;
-                Left = node.Left;
-                Right = node.Right;
+                key = node.key;
+                value = node.value;
+                left = node.left;
+                right = node.right;
             }
         }
 
@@ -74,19 +74,29 @@ namespace BST
             return count == 0;
         }
 
-        public void Insert(TKey key, TValue value)
+        public void Add(TKey key, TValue value)
         {
-            root = Insert(root, key, value);
+            root = Add(root, key, value);
         }
 
         public bool Contain(TKey key)
         {
-            return Contain(root, key);
+            return GetNode(root, key) != null;
         }
 
-        public TValue Search(TKey key)
+        public TValue Get(TKey key)
         {
-            return Search(root, key);
+            Node node = GetNode(root, key);
+            return node == null ? default(TValue) : node.value;
+        }
+
+        public void Set(TKey key, TValue newValue)
+        {
+            Node node = GetNode(root, key);
+            if (node == null)
+                throw new ArgumentException(key + " doesn't exist!");
+
+            node.value = newValue;
         }
 
         /// <summary>
@@ -97,7 +107,7 @@ namespace BST
             if (count == 0)
                 throw new IndexOutOfRangeException("BST is empty");
             Node minNode = Min(root);
-            return minNode.Key;
+            return minNode.key;
         }
 
         /// <summary>
@@ -108,7 +118,7 @@ namespace BST
             if (count == 0)
                 throw new IndexOutOfRangeException("BST is empty");
             Node maxNode = Max(root);
-            return maxNode.Key;
+            return maxNode.key;
         }
 
         /// <summary>
@@ -121,12 +131,14 @@ namespace BST
                 root = DeleteMin(root);
             }
         }
-        
+
         /// <summary>
         /// 删除键值最大的节点
         /// </summary>
-        public void DeleteMax() {
-            if (root != null) {
+        public void DeleteMax()
+        {
+            if (root != null)
+            {
                 root = DeleteMax(root);
             }
         }
@@ -145,7 +157,7 @@ namespace BST
         /// <param name="key">要更新的节点的 key</param>
         /// <param name="value">要更新的节点的 value</param>
         /// <returns></returns>
-        private Node Insert(Node node, TKey key, TValue value)
+        private Node Add(Node node, TKey key, TValue value)
         {
             if (node == null)
             {
@@ -155,77 +167,38 @@ namespace BST
                 return new Node(key, value);
             }
 
-            if (key.CompareTo(node.Key) < 0)
+            if (key.CompareTo(node.key) < 0)
             {
                 // 小于根节点的键，往左边子树插入
-                node.Left = Insert(node.Left, key, value);
+                node.left = Add(node.left, key, value);
             }
-            else if (key.CompareTo(node.Key) > 0)
+            else if (key.CompareTo(node.key) > 0)
             {
                 // 大于根节点的键，往右边子树插入
-                node.Right = Insert(node.Right, key, value);
+                node.right = Add(node.right, key, value);
             }
             else
             {
                 // 如果 key 相等就直接更新（注意二叉搜索树的键是唯一的）
-                node.Value = value;
+                node.value = value;
             }
 
             return node;
         }
 
         /// <summary>
-        /// 递归判断是否包含指定 key 的节点
+        /// 返回以 node 为根节点的二分搜索树中，key 所在的节点
         /// </summary>
-        /// <param name="node">根节点</param>
-        /// <param name="key">要找的 key</param>
-        /// <returns></returns>
-        private bool Contain(Node node, TKey key)
+        private Node GetNode(Node node, TKey key)
         {
-            // 递归退出条件.最后到达树底，直到下面没节点了(NULL),返回 false
             if (node == null)
-            {
-                return false;
-            }
+                return null;
 
-            if (key.CompareTo(node.Key) > 0)
-            {
-                // 大于就在右边找
-                return Contain(node.Right, key);
-            }
-
-            if (key.CompareTo(node.Key) < 0)
-            {
-                // 小于就在左边找
-                return Contain(node.Left, key);
-            }
-
-            // 找到相等的值
-            return true;
-        }
-
-        private TValue Search(Node node, TKey key)
-        {
-            // 到达树底，返回泛型的默认值，因此最好先调用 Contain 看看
-            if (node == null)
-            {
-                return default(TValue);
-            }
-
-            if (key.CompareTo(node.Key) > 0)
-            {
-                // 大于就在右边找
-                return Search(node.Right, key);
-            }
-
-            if (key.CompareTo(node.Key) < 0)
-            {
-                // 小于就在左边找
-                return Search(node.Left, key);
-            }
-
-            // 找到相等的值
-            return node.Value;
+            if (key.Equals(node.key))
+                return node;
+            if (key.CompareTo(node.key) < 0)
+                return GetNode(node.left, key);
+            return GetNode(node.right, key);
         }
 
         #endregion
@@ -267,15 +240,15 @@ namespace BST
             while (queue.Count != 0)
             {
                 Node node = queue.Dequeue();
-                Console.WriteLine(node.Key);
-                if (node.Left != null)
+                Console.WriteLine(node.key);
+                if (node.left != null)
                 {
-                    queue.Enqueue(node.Left);
+                    queue.Enqueue(node.left);
                 }
 
-                if (node.Right != null)
+                if (node.right != null)
                 {
-                    queue.Enqueue(node.Right);
+                    queue.Enqueue(node.right);
                 }
             }
         }
@@ -288,9 +261,9 @@ namespace BST
         {
             if (node != null)
             {
-                Console.WriteLine(node.Key);
-                PreOrder(node.Left);
-                PreOrder(node.Right);
+                Console.WriteLine(node.key);
+                PreOrder(node.left);
+                PreOrder(node.right);
             }
         }
 
@@ -303,9 +276,9 @@ namespace BST
         {
             if (node != null)
             {
-                InOrder(node.Left);
-                Console.WriteLine(node.Key);
-                InOrder(node.Right);
+                InOrder(node.left);
+                Console.WriteLine(node.key);
+                InOrder(node.right);
             }
         }
 
@@ -317,9 +290,9 @@ namespace BST
         {
             if (node != null)
             {
-                PostOrder(node.Left);
-                PostOrder(node.Right);
-                Console.WriteLine(node.Key);
+                PostOrder(node.left);
+                PostOrder(node.right);
+                Console.WriteLine(node.key);
             }
         }
 
@@ -331,12 +304,12 @@ namespace BST
         private Node Min(Node node)
         {
             // 一直找左子树，没有左子节点的时候就到了最小点了
-            if (node.Left == null)
+            if (node.left == null)
             {
                 return node;
             }
 
-            return Min(node.Left);
+            return Min(node.left);
         }
 
         /// <summary>
@@ -347,12 +320,12 @@ namespace BST
         private Node Max(Node node)
         {
             // 一直找右子树，没有左子节点的时候就到了最小点了
-            if (node.Right == null)
+            if (node.right == null)
             {
                 return node;
             }
 
-            return Max(node.Right);
+            return Max(node.right);
         }
 
         /// <summary>
@@ -362,11 +335,11 @@ namespace BST
         /// <returns>最小的节点</returns>
         private Node DeleteMin(Node node)
         {
-            if (node.Left == null)
+            if (node.left == null)
             {
                 // 没有左节点了，就要看看右节点是否存在，有则删除
-                Node rightNode = node.Right;
-                node.Right = null;
+                Node rightNode = node.right;
+                node.right = null;
                 count--;
                 // 没有左节点的话，就移除它的父节点（也就是最小的节点）
                 // 这样无论右节点为不为空 null，都可以返回作为上一个节点的左节点
@@ -375,7 +348,7 @@ namespace BST
             }
 
             // 好好体验递归
-            node.Left = DeleteMin(node.Left);
+            node.left = DeleteMin(node.left);
             return node;
         }
 
@@ -386,11 +359,11 @@ namespace BST
         /// <returns>最小的节点</returns>
         private Node DeleteMax(Node node)
         {
-            if (node.Right == null)
+            if (node.right == null)
             {
                 // 没有右节点了，就要看看左节点是否存在，有则删除
-                Node leftNode = node.Left;
-                node.Left = null;
+                Node leftNode = node.left;
+                node.left = null;
                 count--;
                 // 没有右节点的话，就移除它的父节点（也就是最大的节点）
                 // 这样无论左节点为不为空 null，都可以返回作为上一个节点的右节点
@@ -398,7 +371,7 @@ namespace BST
                 return leftNode;
             }
 
-            node.Right = DeleteMax(node.Right);
+            node.right = DeleteMax(node.right);
             return node;
         }
 
@@ -407,9 +380,6 @@ namespace BST
         /// 删除最小节点后的替换值实际从删除节点的右子树中找最小节点即可
         /// 返回删除节点后的新的二分搜索树的根。
         /// </summary>
-        /// <param name="node"></param>
-        /// <param name="key"></param>
-        /// <returns></returns>
         private Node DeleteNode(Node node, TKey key)
         {
             if (node == null)
@@ -417,31 +387,31 @@ namespace BST
                 return null;
             }
 
-            if (key.CompareTo(node.Key) < 0)
+            if (key.CompareTo(node.key) < 0)
             {
-                node.Left = DeleteNode(node.Left, key);
+                node.left = DeleteNode(node.left, key);
                 return node;
             }
 
-            if (key.CompareTo(node.Key) > 0)
+            if (key.CompareTo(node.key) > 0)
             {
-                node.Right = DeleteNode(node.Right, key);
+                node.right = DeleteNode(node.right, key);
                 return node;
             }
 
             // 找到要删除的节点
-            if (node.Left == null)
+            if (node.left == null)
             {
                 // 左子树为空，看右子树，删除节点后，把右子树接到节点原来的位置去
-                Node rightNode = node.Right;
+                Node rightNode = node.right;
                 count--;
                 return rightNode;
             }
 
-            if (node.Right == null)
+            if (node.right == null)
             {
                 // 右子树为空，看左子树，删除节点后，把左子树接到节点原来的位置去
-                Node leftNode = node.Left;
+                Node leftNode = node.left;
                 count--;
                 return leftNode;
             }
@@ -449,12 +419,12 @@ namespace BST
             // 左右子树都不为空，使用 Hibbard Deletion
             // 找到键值比节点键值大，且最相近的节点，也就是右子树的最小节点。(同理，或者左子树的最大节点)
             // 并把这个节点上提至节点本身的位置，更新左右子树
-            Node successor = new Node(Min(node.Right));
-            successor.Left = node.Left;
-            successor.Right = DeleteMin(node.Right);
+            Node successor = new Node(Min(node.right));
+            successor.left = node.left;
+            successor.right = DeleteMin(node.right);
             count++; // DeleteMin 中已经 count-- 了，所以要加回来
 
-            node.Left = node.Right = null;
+            node.left = node.right = null;
             count--; // 删除了键值相同的节点
             return successor;
         }

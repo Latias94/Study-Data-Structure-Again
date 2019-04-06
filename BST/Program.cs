@@ -16,7 +16,7 @@ namespace BST
             {
                 int key = random.Next(m);
                 // 为了后续测试方便,这里 value 值取和 key 值一样
-                bst.Insert(key, key);
+                bst.Add(key, key);
                 Console.Write(key + " ");
             }
 
@@ -63,7 +63,7 @@ namespace BST
             {
                 int key = random.Next(m);
                 // 为了后续测试方便,这里value值取和key值一样
-                bst.Insert(key, key);
+                bst.Add(key, key);
             }
             // 注意, 由于随机生成的数据有重复, 所以bst中的数据数量大概率是小于n的
 
@@ -90,7 +90,7 @@ namespace BST
                 // 为了后续测试方便,这里 value 值取和 key 值一样.
                 // 注意这里因为 key 是随机产生的，所以可能会出现 key 相同覆盖的情况,
                 // 因此所有的键合并起来一定是 order 数组的子集，所以下面的删除最后一定是 0
-                bst.Insert(key, key);
+                bst.Add(key, key);
             }
 
             // 打乱 order 数组的顺序

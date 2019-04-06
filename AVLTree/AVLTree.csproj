@@ -5,6 +5,7 @@
         <TargetFramework>netcoreapp2.1</TargetFramework>
     </PropertyGroup>
     <ItemGroup>
-        <ProjectReference Include="../SetAndMap/SetAndMap.csproj"/>
+        <ProjectReference Include="../SetAndMap/SetAndMap.csproj" />
+        <ProjectReference Include="../BST/BST.csproj" />
     </ItemGroup>
 </Project>

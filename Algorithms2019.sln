@@ -22,6 +22,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Trie", "Trie\Trie.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UnionFind", "UnionFind\UnionFind.csproj", "{060DB349-2AE4-455F-A829-77A3F91AA43B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AVLTree", "AVLTree\AVLTree.csproj", "{A621B58E-EA1E-43D2-95CF-9AA4923B787A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -72,5 +74,9 @@ Global
 		{060DB349-2AE4-455F-A829-77A3F91AA43B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{060DB349-2AE4-455F-A829-77A3F91AA43B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{060DB349-2AE4-455F-A829-77A3F91AA43B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A621B58E-EA1E-43D2-95CF-9AA4923B787A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A621B58E-EA1E-43D2-95CF-9AA4923B787A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A621B58E-EA1E-43D2-95CF-9AA4923B787A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A621B58E-EA1E-43D2-95CF-9AA4923B787A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
