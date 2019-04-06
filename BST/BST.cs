@@ -5,10 +5,9 @@ namespace BST
 {
     /// <summary>
     /// 二分查找树（不平衡），平衡的二分查找树查看 AVLTree
-    /// Key 唯一、可比较，Value 无所谓
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="TKey">Key 键值唯一、可比较</typeparam>
+    /// <typeparam name="TValue">Value 无所谓</typeparam>
     public class BST<TKey, TValue> where TKey : IComparable
     {
         private class Node
@@ -27,9 +26,6 @@ namespace BST
             /// </summary>
             public Node right;
 
-            /// <summary>
-            /// 构造函数
-            /// </summary>
             public Node(TKey key, TValue value)
             {
                 this.key = key;

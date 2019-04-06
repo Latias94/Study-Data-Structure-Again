@@ -5,10 +5,9 @@ namespace AVLTree
 {
     /// <summary>
     /// 二分查找树
-    /// Key 唯一、可比较，Value 无所谓
     /// </summary>
-    /// <typeparam name="TKey"></typeparam>
-    /// <typeparam name="TValue"></typeparam>
+    /// <typeparam name="TKey">Key 键值唯一、可比较</typeparam>
+    /// <typeparam name="TValue">Value 无所谓</typeparam>
     public class AVLTree<TKey, TValue> where TKey : IComparable
     {
         private class Node
@@ -32,9 +31,6 @@ namespace AVLTree
             /// </summary>
             public int height;
 
-            /// <summary>
-            /// 构造函数
-            /// </summary>
             public Node(TKey key, TValue value)
             {
                 this.key = key;
