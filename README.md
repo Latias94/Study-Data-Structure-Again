@@ -14,6 +14,7 @@
 | 堆和优先队列 | [Heap And Priority Queue](https://github.com/Latias94/study-data-structure-again/tree/master/HeapAndPriorityQueue)  | 由数组实现的最大堆（二叉堆）和由二叉堆实现的优先队列 | √ |
 | 线段树 | [Segment Tree](https://github.com/Latias94/study-data-structure-again/tree/master/SegmentTree) | 由数组实现的线段树 | √ |
 | 字典树（Trie） | [Trie](https://github.com/Latias94/study-data-structure-again/tree/master/Trie) | 只针对 26 个字母的 Trie 树 | √ |
+| 并查集 | [Union Find](https://github.com/Latias94/study-data-structure-again/tree/master/UnionFind) | 几种优化过的并查集 | √ |
 | 无权图 | [Graph](https://github.com/Latias94/study-data-structure-again/tree/master/Graph)  | 稀疏图（邻接表）、稠密图（邻接矩阵）、深度优先遍历、广度优先遍历  | √ |
 | 有权图 | [Minimum Spanning Tree](https://github.com/Latias94/study-data-structure-again/tree/master/MinimumSpanningTree) | 加权稀疏图（邻接表）、加权稠密图（邻接矩阵） | × |
 
