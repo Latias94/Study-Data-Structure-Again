@@ -4,19 +4,19 @@ using Array;
 namespace HeapAndPriorityQueue
 {
     /// <summary>
-    /// 基于之前实现的动态扩容数组来实现最大堆（二叉堆）结构
+    /// 基于之前实现的动态扩容数组来实现最小堆（二叉堆）结构
     /// 注意：跨 project 调用 Array 类，需要在 csproj 中添加引用，本项目已添加引用
     /// </summary>
-    public class MaxHeap<T> where T : IComparable
+    public class MinHeap<T> where T : IComparable
     {
         private Array<T> data;
 
-        public MaxHeap(int capacity)
+        public MinHeap(int capacity)
         {
             data = new Array<T>(capacity);
         }
 
-        public MaxHeap()
+        public MinHeap()
         {
             data = new Array<T>();
         }
@@ -27,7 +27,7 @@ namespace HeapAndPriorityQueue
         ///          这样能少操作近乎占了一半的叶子结点
         ///     时间复杂度为 O(n)
         /// </summary>
-        public MaxHeap(T[] arr)
+        public MinHeap(T[] arr)
         {
             data = new Array<T>(arr);
             for (int i = Parent(arr.Length - 1); i >= 0; i--)
@@ -90,8 +90,8 @@ namespace HeapAndPriorityQueue
 
         private void SiftUp(int k)
         {
-            // 只要节点比父节点大，就不断与父节点交换位置
-            while (k > 0 && data.Get(Parent(k)).CompareTo(data.Get(k)) < 0)
+            // 只要节点比父节点小，就不断与父节点交换位置
+            while (k > 0 && data.Get(Parent(k)).CompareTo(data.Get(k)) > 0)
             {
                 data.Swap(k, Parent(k));
                 k = Parent(k);
@@ -102,13 +102,13 @@ namespace HeapAndPriorityQueue
             while (LeftChild(k) < data.GetSize()) {
                 int j = LeftChild(k);
                 if (j + 1 < data.GetSize() &&
-                    data.Get(j + 1).CompareTo(data.Get(j)) > 0) {
-                    // j 记录 k 左右子树中找比较大的值的索引
+                    data.Get(j + 1).CompareTo(data.Get(j)) < 0) {
+                    // j 记录 k 左右子树中找比较小的值的索引
                     j++;
                 }
-                // 根据最大堆的性质，父节点要比左右子树节点都大
-                // 如果 k 这个父节点比较大的子节点还大，就不用再操作了
-                if (data.Get(k).CompareTo(data.Get(j)) >= 0) {
+                // 根据最小堆的性质，父节点要比左右子树节点都小
+                // 如果 k 这个父节点比较大的子节点还小，就不用再操作了
+                if (data.Get(k).CompareTo(data.Get(j)) <= 0) {
                     break;
                 }
                 // 将 k 父节点和较大值的节点交换位置
@@ -119,25 +119,25 @@ namespace HeapAndPriorityQueue
 
 
         /// <summary>
-        /// 查看堆中的最大元素
+        /// 查看堆中的最小元素
         /// </summary>
-        /// <returns>最大的元素</returns>
-        public T GetMax()
+        /// <returns>最小的元素</returns>
+        public T GetMin()
         {
             if (data.GetSize() == 0)
             {
-                throw new ArgumentException("Can not getMax when heap is empty.");
+                throw new ArgumentException("Can not getMin when heap is empty.");
             }
 
             return data.Get(0);
         }
         
         /// <summary>
-        /// 弹出出堆中最大元素
+        /// 弹出出堆中最小元素
         /// </summary>
-        /// <returns>最大的元素</returns>
-        public T ExtractMax() {
-            T max = GetMax();
+        /// <returns>最小的元素</returns>
+        public T ExtractMin() {
+            T max = GetMin();
             // 把最小的元素放到根节点，然后再端 sift down 还原堆结构
             data.Swap(0, data.GetSize() - 1);
             data.RemoveLast();
@@ -146,12 +146,12 @@ namespace HeapAndPriorityQueue
         }
         
         /// <summary>
-        /// 取出堆中的最大元素，并用新元素替换它
+        /// 取出堆中的最小元素，并用新元素替换它
         /// </summary>
         /// <param name="element">新元素</param>
-        /// <returns>取出的最大的元素</returns>
+        /// <returns>取出的最小的元素</returns>
         public T Replace(T element) {
-            T ret = GetMax();
+            T ret = GetMin();
             data.Set(0, element);
             SiftDown(0);
             return ret;

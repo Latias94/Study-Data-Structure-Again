@@ -2,7 +2,7 @@ using System;
 
 namespace MinimumSpanningTree
 {
-    public interface IWeightGraph<TWeight> where TWeight : struct, IConvertible, IComparable
+    public interface IWeightedGraph<TWeight> where TWeight : struct, IConvertible, IComparable
     {
         int V();
 

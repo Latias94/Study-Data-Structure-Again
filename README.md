@@ -11,7 +11,7 @@
 | 链表 | [Linked List](https://github.com/Latias94/study-data-structure-again/tree/master/LinkedList)  | 泛型链表、还有用链表实现的栈和队列  | √ |
 | 二分查找树 | [BST](https://github.com/Latias94/study-data-structure-again/tree/master/BST)  | 二分查找树的前中后序遍历、层序遍历和添加删除查找节点 （不平衡） | √ |
 | 集合和映射 | [Set And Map](https://github.com/Latias94/study-data-structure-again/tree/master/SetAndMap)  | 分别由链表和二分查找树实现的集合和映射  | √ |
-| 堆和优先队列 | [Heap And Priority Queue](https://github.com/Latias94/study-data-structure-again/tree/master/HeapAndPriorityQueue)  | 由数组实现的最大堆（二叉堆）和由二叉堆实现的优先队列 | √ |
+| 堆和优先队列 | [Heap And Priority Queue](https://github.com/Latias94/study-data-structure-again/tree/master/HeapAndPriorityQueue)  | 由二叉堆实现的最大堆、最小堆和优先队列 | √ |
 | 线段树 | [Segment Tree](https://github.com/Latias94/study-data-structure-again/tree/master/SegmentTree) | 由数组实现的线段树 | √ |
 | 字典树（Trie） | [Trie](https://github.com/Latias94/study-data-structure-again/tree/master/Trie) | 只针对 26 个字母的 Trie 树 | √ |
 | 并查集 | [Union Find](https://github.com/Latias94/study-data-structure-again/tree/master/UnionFind) | 几种优化过的并查集 | √ |

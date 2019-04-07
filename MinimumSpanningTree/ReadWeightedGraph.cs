@@ -5,7 +5,7 @@ namespace MinimumSpanningTree
 {
     public static class ReadWeightedGraph
     {
-        public static void ReadFromFile(IWeightGraph<double> graph, string filename)
+        public static void ReadFromFile(IWeightedGraph<double> graph, string filename)
         {
             if (filename == null) return;
             try

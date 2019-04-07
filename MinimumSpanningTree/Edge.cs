@@ -6,7 +6,7 @@ namespace MinimumSpanningTree
     /// 加权图的边
     /// </summary>
     /// <typeparam name="TWeight">权值</typeparam>
-    public class Edge<TWeight> : IComparable<Edge<TWeight>> where TWeight : struct, IConvertible, IComparable
+    public class Edge<TWeight> : IComparable where TWeight : struct, IConvertible, IComparable
     {
         /// <summary>
         /// 边的两个顶点
@@ -14,14 +14,20 @@ namespace MinimumSpanningTree
         private int a, b;
 
         /// <summary>
-        /// 返回第一个顶点
+        /// 返回边的第一个顶点
         /// </summary>
-        public int V() => a;
+        public int V()
+        {
+            return a;
+        }
 
         /// <summary>
-        /// 返回第二个顶点
+        /// 返回边的第二个顶点
         /// </summary>
-        public int W() => b;
+        public int W()
+        {
+            return b;
+        }
 
         /// <summary>
         /// 边的权值
@@ -59,14 +65,14 @@ namespace MinimumSpanningTree
             return x == a ? b : a;
         }
 
-        public int CompareTo(Edge<TWeight> other)
-        {
-            return weight.CompareTo(other.Weight());
-        }
-
         public override string ToString()
         {
             return a + "--" + b + ":" + weight;
+        }
+
+        public int CompareTo(object obj)
+        {
+            return weight.CompareTo(((Edge<TWeight>) obj).Weight());
         }
     }
 }

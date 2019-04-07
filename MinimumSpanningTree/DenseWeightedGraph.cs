@@ -7,7 +7,7 @@ namespace MinimumSpanningTree
     /// 加权稠密图 - 邻接矩阵
     /// </summary>
     /// <typeparam name="TWeight">权值</typeparam>
-    public class DenseWeightedGraph<TWeight> : IWeightGraph<TWeight> where TWeight : struct, IConvertible, IComparable
+    public class DenseWeightedGraph<TWeight> : IWeightedGraph<TWeight> where TWeight : struct, IConvertible, IComparable
     {
         // 图的点数和边数
         private int vertices, edges;

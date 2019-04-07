@@ -7,7 +7,7 @@ namespace MinimumSpanningTree
     /// 加权稀疏图 - 邻接表
     /// </summary>
     /// <typeparam name="TWeight">权值</typeparam>
-    public class SparseWeightedGraph<TWeight> : IWeightGraph<TWeight> where TWeight : struct, IConvertible, IComparable
+    public class SparseWeightedGraph<TWeight> : IWeightedGraph<TWeight> where TWeight : struct, IConvertible, IComparable
     {
         // 图的点数和边数
         private int vertices, edges;
