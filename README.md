@@ -22,3 +22,4 @@
 
 ## Reference
 * [liuyubobobo/Play-with-Data-Structures](https://github.com/liuyubobobo/Play-with-Data-Structures)
+* [《数据结构与算法图解》](http://www.ituring.com.cn/book/2538)
