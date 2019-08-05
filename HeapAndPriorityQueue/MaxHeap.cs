@@ -30,6 +30,8 @@ namespace HeapAndPriorityQueue
         public MaxHeap(T[] arr)
         {
             data = new Array<T>(arr);
+            if (arr.Length <= 1) return;
+            
             for (int i = Parent(arr.Length - 1); i >= 0; i--)
             {
                 SiftDown(i);
